@@ -1,8 +1,8 @@
-import Cart from './components/cart';
-import ProductsGrid from './components/products-grid';
-import { useCart } from '../stores/useCart.tsx';
+import { useCart } from '@/stores/useCart';
+import { ProductsGrid } from './ProductsGrid';
+import { Cart } from './Cart';
 
-export default function Shopping() {
+export function Shopping() {
   const { showCart } = useCart();
 
   return (

@@ -1,6 +1,6 @@
-import useProducts from '../../../hooks/useProducts.tsx';
+import { useProducts } from '@/hooks/useProducts';
 
-export default function ProductsGrid() {
+export function ProductsGrid() {
   const { error, data, isPending } = useProducts();
 
   if (error) {

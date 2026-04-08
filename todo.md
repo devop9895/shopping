@@ -1,9 +1,7 @@
 
 
-# alias modules
-import ErrorSpan from '../../../components/ErrorSpan.tsx';
-
-# check missing index.tsx
-
 # remove a product in detail view
+    click a row, navigates to detail view
     useMutation, then invalidateQueries
+
+

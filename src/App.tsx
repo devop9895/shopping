@@ -1,12 +1,12 @@
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
-import Products from './products';
-import Shopping from './shopping';
-import NotFound from './components/NotFound';
-import Create from './products/components/create';
-import Detail from './products/components/detail';
-import { useCart } from './stores/useCart.tsx';
 
-export default function App() {
+import { useCart } from '@/stores/useCart';
+import { NotFound } from '@/components/NotFound';
+
+import { Products, Detail, Create } from '@/features/products';
+import { Shopping } from '@/features/shopping';
+
+export function App() {
   const { toggleShowCart } = useCart();
 
   return (

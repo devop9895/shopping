@@ -1,6 +1,6 @@
-import useProducts from '../../../hooks/useProducts.tsx';
+import { useProducts } from '@/hooks/useProducts';
 
-export default function ProductsList() {
+export function ProductsList() {
   const { error, data, isPending } = useProducts();
 
   if (isPending) {

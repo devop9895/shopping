@@ -1,13 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { BRAND_LIST, formSchemaProduct, type formTypeProduct } from '../../schemas/product.tsx';
-import ErrorSpan from '../../../components/ErrorSpan.tsx';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { CreateNewProduct } from '../../api';
 import { useNavigate } from 'react-router-dom';
-import { PRODUCT_KEYS } from '../../../hooks/useProducts.tsx';
 
-export default function Create() {
+import { ErrorSpan } from '@/components/ErrorSpan';
+import { PRODUCT_KEYS } from '@/hooks/useProducts';
+
+import { createNewProduct } from '@/features/products';
+import { BRAND_LIST, formSchemaProduct, type formTypeProduct } from '../schemas';
+
+export function Create() {
   const navigate = useNavigate();
   const handleCancel = () => {
     reset();
@@ -25,7 +27,7 @@ export default function Create() {
 
   const queryClient = useQueryClient();
   const { isPending: isMutatePending, mutate } = useMutation({
-    mutationFn: CreateNewProduct,
+    mutationFn: createNewProduct,
     onSuccess: () => {
       reset();
       queryClient.invalidateQueries({

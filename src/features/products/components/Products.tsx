@@ -1,7 +1,8 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import ProductsList from './components/products-list';
 
-export default function Products() {
+import { ProductsList } from './ProductsList';
+
+export function Products() {
   const navigate = useNavigate();
 
   return (
