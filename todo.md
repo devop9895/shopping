@@ -3,5 +3,7 @@
 # alias modules
 import ErrorSpan from '../../../components/ErrorSpan.tsx';
 
-# zustand
-move showCart
+# check missing index.tsx
+
+# remove a product in detail view
+    useMutation, then invalidateQueries

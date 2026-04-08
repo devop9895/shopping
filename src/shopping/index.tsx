@@ -1,7 +1,10 @@
 import Cart from './components/cart';
 import ProductsGrid from './components/products-grid';
+import { useCart } from '../stores/useCart.tsx';
 
-export default function Shopping({ showCart }: { showCart: boolean }) {
+export default function Shopping() {
+  const { showCart } = useCart();
+
   return (
     <div className='flex-1 flex'>
       <section className={`flex flex-col ${showCart ? 'w-[75%]' : 'w-full'}`}>

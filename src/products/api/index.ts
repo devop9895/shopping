@@ -3,7 +3,7 @@ import {
   type dataBaseTypeProducts,
   dataBaseSchemaProducts,
 } from '../schemas/product.tsx';
-import { SERVER_URL } from '../../constants.ts';
+import { SERVER_URL } from '../../config/config.ts';
 
 export async function CreateNewProduct(product: formTypeProduct) {
   await new Promise((resolve) => setTimeout(resolve, 2000));

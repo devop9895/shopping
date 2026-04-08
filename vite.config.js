@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 5200,
     watch: {
-      ignored: ['**/server/db.json5'],
+      ignored: ['**/server/db.json5', '**/todo.md'],
     },
   },
 });

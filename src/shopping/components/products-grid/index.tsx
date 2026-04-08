@@ -19,7 +19,7 @@ export default function ProductsGrid() {
     <div className='productsGrid'>
       {data.map((product) => {
         return (
-          <div className='border-2'>
+          <div key={product.id} className='border-2'>
             <div>
               {product.name} - {product.brand}
             </div>
