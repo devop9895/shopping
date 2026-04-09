@@ -5,6 +5,7 @@ import { NotFound } from '@/components/NotFound';
 
 import { Products, Detail, Create } from '@/features/products';
 import { Shopping } from '@/features/shopping';
+import { Boundary } from '@/components/ErrorBoundaries';
 
 export function App() {
   const { toggleShowCart } = useCart();
@@ -29,8 +30,22 @@ export function App() {
         <Routes>
           <Route path='/' element={<Navigate to='/products' replace />} />
           <Route path='/products' element={<Products />}>
-            <Route path='details/:id' element={<Detail />} />
-            <Route path='create' element={<Create />} />
+            <Route
+              path='details/:id'
+              element={
+                <Boundary>
+                  <Detail />
+                </Boundary>
+              }
+            />
+            <Route
+              path='create'
+              element={
+                <Boundary>
+                  <Create />
+                </Boundary>
+              }
+            />
           </Route>
 
           <Route path='/shopping' element={<Shopping />} />

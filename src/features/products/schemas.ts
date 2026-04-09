@@ -14,7 +14,8 @@ const dataBaseSchemaProduct = formSchemaProduct.extend({
   id: z.string(),
 });
 const dataBaseSchemaProducts = z.array(dataBaseSchemaProduct);
+type dataBaseTypeProduct = z.infer<typeof dataBaseSchemaProduct>;
 type dataBaseTypeProducts = z.infer<typeof dataBaseSchemaProducts>;
 
 export { BRAND_LIST, formSchemaProduct, dataBaseSchemaProducts };
-export type { formTypeProduct, dataBaseTypeProducts };
+export type { formTypeProduct, dataBaseTypeProducts, dataBaseTypeProduct };
