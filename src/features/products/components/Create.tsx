@@ -4,9 +4,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { ErrorSpan } from '@/components/ErrorSpan';
-import { PRODUCT_KEYS } from '@/hooks/useProducts';
 
 import { createNewProduct } from '@/features/products';
+import { PRODUCT_KEYS } from '@/features/products/constants';
 import { BRAND_LIST, formSchemaProduct, type formTypeProduct } from '../schemas';
 
 export function Create() {
@@ -70,7 +70,7 @@ export function Create() {
 
         <footer>
           <button type='submit' disabled={isMutatePending}>
-            Create {isMutatePending ? '...' : ''}
+            Create
           </button>
           <button type='button' onClick={handleCancel}>
             Cancel
