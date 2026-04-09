@@ -1,1 +1,89 @@
-{products:[{name:'lapiz',price:10,brand:'Brand 1',description:'largo largo largo',id:'cqmBtASYZ5Q'},{name:'qq121',price:11,brand:'Brand 2',description:'111121212323',id:'OeX7Iyipy5A'},{name:'1212',price:1212,brand:'Brand 1',description:'qwdqwddw1212',id:'xuIhT9pFwp8'},{name:'qwewq',price:1212,brand:'Brand 1',description:'qweqwewqwqeee',id:'0vjxnoMEyGE'},{name:'213123213',price:123123,brand:'Brand 1',description:'123123123123123',id:'nv6p5VgzRRA'},{name:'21312312',price:123123,brand:'Brand 1',description:'123123123213123',id:'xmORD2cgbMU'},{name:'123123',price:123123,brand:'Brand 1',description:'123123213213123123',id:'_x85P9tkoRg'},{name:'2312323',price:123123,brand:'Brand 1',description:'123123123123123',id:'9us9nKKxbqg'},{name:'wqwerewr',price:34123,brand:'Brand 1',description:'weqwrqwqewqwee',id:'Qt-uupn5zH4'},{name:'21312',price:123123123,brand:'Brand 1',description:'123123123123213',id:'BaOOI0A0y8g'},{name:'ajhdslkasjd',price:879987,brand:'Brand 1',description:'qedqedqedqedqwdq',id:'53RgUiU6kH4'},{name:'erqwerq',price:21321,brand:'Brand 1',description:'dqwdqdqqwdqwdqwd',id:'EvL3-7ZDdHA'}],$schema:'./node_modules/json-server/schema.json'}
+{
+  products: [
+    {
+      name: 'lapiz',
+      price: 10,
+      brand: 'Brand 1',
+      description: 'largo largo largo',
+      id: 'cqmBtASYZ5Q'
+    },
+    {
+      name: 'qq121',
+      price: 11,
+      brand: 'Brand 2',
+      description: '111121212323',
+      id: 'OeX7Iyipy5A'
+    },
+    {
+      name: '1212',
+      price: 1212,
+      brand: 'Brand 1',
+      description: 'qwdqwddw1212',
+      id: 'xuIhT9pFwp8'
+    },
+    {
+      name: 'qwewq',
+      price: 1212,
+      brand: 'Brand 1',
+      description: 'qweqwewqwqeee',
+      id: '0vjxnoMEyGE'
+    },
+    {
+      name: '213123213',
+      price: 123123,
+      brand: 'Brand 1',
+      description: '123123123123123',
+      id: 'nv6p5VgzRRA'
+    },
+    {
+      name: '21312312',
+      price: 123123,
+      brand: 'Brand 1',
+      description: '123123123213123',
+      id: 'xmORD2cgbMU'
+    },
+    {
+      name: '123123',
+      price: 123123,
+      brand: 'Brand 1',
+      description: '123123213213123123',
+      id: '_x85P9tkoRg'
+    },
+    {
+      name: '2312323',
+      price: 123123,
+      brand: 'Brand 1',
+      description: '123123123123123',
+      id: '9us9nKKxbqg'
+    },
+    {
+      name: 'wqwerewr',
+      price: 34123,
+      brand: 'Brand 1',
+      description: 'weqwrqwqewqwee',
+      id: 'Qt-uupn5zH4'
+    },
+    {
+      name: '21312',
+      price: 123123123,
+      brand: 'Brand 1',
+      description: '123123123123213',
+      id: 'BaOOI0A0y8g'
+    },
+    {
+      name: 'ajhdslkasjd',
+      price: 879987,
+      brand: 'Brand 1',
+      description: 'qedqedqedqedqwdq',
+      id: '53RgUiU6kH4'
+    },
+    {
+      name: 'erqwerq',
+      price: 21321,
+      brand: 'Brand 1',
+      description: 'dqwdqdqqwdqwdqwd',
+      id: 'EvL3-7ZDdHA'
+    }
+  ],
+  $schema: './node_modules/json-server/schema.json'
+}

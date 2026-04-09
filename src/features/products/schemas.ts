@@ -17,5 +17,21 @@ const dataBaseSchemaProducts = z.array(dataBaseSchemaProduct);
 type dataBaseTypeProduct = z.infer<typeof dataBaseSchemaProduct>;
 type dataBaseTypeProducts = z.infer<typeof dataBaseSchemaProducts>;
 
-export { BRAND_LIST, formSchemaProduct, dataBaseSchemaProducts };
-export type { formTypeProduct, dataBaseTypeProducts, dataBaseTypeProduct };
+const dataBaseSchemaProductPagination = z.object({
+  first: z.coerce.number(),
+  prev: z.coerce.number().optional(),
+  next: z.coerce.number().optional(),
+  last: z.coerce.number(),
+  pages: z.coerce.number(),
+  items: z.coerce.number(),
+  data: dataBaseSchemaProducts,
+});
+type dataBaseTypeProductPagination = z.infer<typeof dataBaseSchemaProductPagination>;
+
+export { BRAND_LIST, formSchemaProduct, dataBaseSchemaProducts, dataBaseSchemaProductPagination };
+export type {
+  formTypeProduct,
+  dataBaseTypeProducts,
+  dataBaseTypeProduct,
+  dataBaseTypeProductPagination,
+};

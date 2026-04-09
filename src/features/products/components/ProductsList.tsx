@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-import { useProducts } from '@/hooks/useProducts';
+import { useAllProducts } from '@/hooks/useAllProducts';
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 
 export function ProductsList() {
-  const { error, data, isPending } = useProducts();
+  const { error, data, isPending } = useAllProducts();
 
   const navigate = useNavigate();
   const handleClick = (item: dataBaseTypeProduct) => {
@@ -20,7 +20,7 @@ export function ProductsList() {
   }
   return (
     <div>
-      {data.map((item, index) => {
+      {data?.data?.map((item, index) => {
         return (
           <div key={item.id} onClick={() => handleClick(item)}>
             <div>

@@ -1,4 +1,4 @@
-import { useProducts } from '@/hooks/useProducts';
+import { useProducts } from '@/features/shopping/hooks/useProducts';
 
 export function ProductsGrid() {
   const { error, data, isPending } = useProducts();
@@ -11,13 +11,13 @@ export function ProductsGrid() {
     return <div>Loading products...</div>;
   }
 
-  if (!data?.length) {
+  if (!data?.data?.length) {
     return <div>There is no products</div>;
   }
 
   return (
     <div className='productsGrid'>
-      {data.map((product) => {
+      {data?.data.map((product) => {
         return (
           <div key={product.id} className='border-2'>
             <div>

@@ -20,11 +20,7 @@ export function Shopping() {
           <Pagination />
         </footer>
       </section>
-      {showCart && (
-        <div className='w-[25%] flex'>
-          <Cart />
-        </div>
-      )}
+      <Cart />
     </div>
   );
 }

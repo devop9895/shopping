@@ -14,6 +14,7 @@ const client = new QueryClient({
       staleTime: 60 * 1000,
       gcTime: 120 * 1000,
       // refetchInterval: 60 * 1000,
+      retry: 1,
     },
   },
 });
