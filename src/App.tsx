@@ -1,15 +1,14 @@
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
-import { useCart } from '@/stores/useCart';
 import { NotFound } from '@/components/NotFound';
 
 import { Products, Detail, Create } from '@/features/products';
 import { Shopping } from '@/features/shopping';
 import { Boundary } from '@/components/ErrorBoundaries';
+import { CartMenu } from '@/components/CartMenu';
+import { SettingsMenu } from '@/components/SettingsMenu';
 
 export function App() {
-  const { toggleShowCart } = useCart();
-
   return (
     <div className='flex flex-col h-dvh w-full p-2'>
       <header className='flex justify-between'>
@@ -22,8 +21,8 @@ export function App() {
           </NavLink>
         </nav>
         <div>
-          <button onClick={() => toggleShowCart()}>Cart icon</button>
-          <button>Setting-wheel</button>
+          <CartMenu />
+          <SettingsMenu />
         </div>
       </header>
       <main className='flex-1 flex flex-col'>

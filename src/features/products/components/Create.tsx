@@ -38,7 +38,7 @@ export function Create() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className='p-3'>
         <header>Load new product</header>
 
         <section>
@@ -68,7 +68,7 @@ export function Create() {
           </label>
         </section>
 
-        <footer>
+        <footer className='flex justify-between'>
           <button type='submit' disabled={isMutatePending}>
             Create
           </button>

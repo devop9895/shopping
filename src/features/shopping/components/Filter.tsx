@@ -16,7 +16,7 @@ export function Filter() {
     searchParams.set(SEARCH_PARAM_QUERY, value);
     setSearchParams(searchParams);
   };
-  const debouncedURLUpdate = useDebouncedCallback(URLUpdate, 1000);
+  const debouncedURLUpdate = useDebouncedCallback(URLUpdate, 300);
   const handleChange = (event: SyntheticEvent) => {
     setQuery(event.target.value);
     debouncedURLUpdate(event.target.value);

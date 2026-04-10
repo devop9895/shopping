@@ -41,7 +41,7 @@ export function Detail() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='p-3'>
       <header>Detail</header>
       <section>
         <div>Name: {product.name}</div>
@@ -49,7 +49,7 @@ export function Detail() {
         <div>Price: ${product.price}</div>
         <div>Description: {product.description}</div>
       </section>
-      <footer>
+      <footer className='flex justify-between'>
         <button>Edit</button>
         <button type='button' onClick={handleDelete} disabled={isPending}>
           Delete

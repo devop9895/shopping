@@ -29,5 +29,5 @@ export function useProductsFilters(): FilterParams {
 export const filterGetAll = {
   _sort: SORT_BY_OPTIONS[0],
   _page: '1',
-  _per_page: '15',
+  _per_page: '10000',
 };

@@ -20,12 +20,14 @@ export function ProductsList() {
   }
   return (
     <div>
-      {data?.data?.map((item, index) => {
+      {data?.data?.map((item) => {
         return (
-          <div key={item.id} onClick={() => handleClick(item)}>
+          <div className='border-2' key={item.id} onClick={() => handleClick(item)}>
+            <div>{item.name}</div>
             <div>
-              {index + 1}: - {item.name} - $({item.price}) - {item.brand} - {item.description}
+              $({item.price}) - {item.brand}
             </div>
+            <div>{item.description}</div>
           </div>
         );
       })}

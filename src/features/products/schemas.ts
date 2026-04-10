@@ -1,6 +1,6 @@
 import z from 'zod';
 
-const BRAND_LIST = ['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4', 'Brand 5'] as const;
+import { BRAND_LIST } from './Brands';
 
 const formSchemaProduct = z.object({
   name: z.string().min(3, 'Min length should be at least of 3'),

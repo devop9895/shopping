@@ -20,11 +20,12 @@ export function ProductsGrid() {
       {data?.data.map((product) => {
         return (
           <div key={product.id} className='border-2'>
-            <div>
-              {product.name} - {product.brand}
+            <div>{product.name}</div>
+            <div className='flex justify-between'>
+              <div>Price: $ {product.price}</div>
+              <div>Brand: {product.brand}</div>
             </div>
-            <div>{product.price}</div>
-            <div>{product.description}</div>
+            <div>Description: {product.description}</div>
           </div>
         );
       })}
