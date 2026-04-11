@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
   SEARCH_PARAM_LIMIT,
   SEARCH_PARAM_SORT,
+  SEARCH_PARAM_PAGE,
   QUANTITY_OPTIONS,
   SORT_BY_OPTIONS,
   SEARCH_PARAM_QUERY,
@@ -21,7 +22,7 @@ export function useProductsFilters(): FilterParams {
   return {
     'name:contains': searchParams.get(SEARCH_PARAM_QUERY) || '',
     _sort: searchParams.get(SEARCH_PARAM_SORT) || SORT_BY_OPTIONS[0],
-    _page: '1',
+    _page: searchParams.get(SEARCH_PARAM_PAGE) || '1',
     _per_page: searchParams.get(SEARCH_PARAM_LIMIT) || QUANTITY_OPTIONS[0],
   };
 }

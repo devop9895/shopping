@@ -1,9 +1,13 @@
 import { type SyntheticEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import MUIPagination from '@mui/material/Pagination';
+
+import { useProducts } from '@/features/shopping/hooks/useProducts';
 
 export const SEARCH_PARAM_LIMIT = 'limit';
 export const SEARCH_PARAM_SORT = 'sortBy';
 export const SEARCH_PARAM_QUERY = 'query';
+export const SEARCH_PARAM_PAGE = 'page';
 
 export const QUANTITY_OPTIONS = ['10', '50', '100', '500'] as const;
 export const SORT_BY_OPTIONS = ['name', 'price', 'brand'] as const;
@@ -37,6 +41,19 @@ export function Pagination() {
     setSearchParams(searchParams);
   };
 
+  //
+  const { data } = useProducts();
+  const getInitialPage = () => {
+    return parseInt(searchParams.get(SEARCH_PARAM_PAGE) || '1');
+  };
+  const [page, setPage] = useState<number>(getInitialPage());
+  const handlePageChange = (_, value: number) => {
+    setPage(value);
+
+    searchParams.set(SEARCH_PARAM_PAGE, value.toString());
+    setSearchParams(searchParams);
+  };
+
   return (
     <form className='w-full flex justify-between'>
       <label>
@@ -47,7 +64,9 @@ export function Pagination() {
           })}
         </select>
       </label>
-      <div>Pagination MUI</div>
+      <div>
+        <MUIPagination count={data?.pages} page={page} onChange={handlePageChange} />
+      </div>
       <label>
         Sort By
         <select value={sortBy} onChange={handleSortByChange}>
