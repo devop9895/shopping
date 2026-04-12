@@ -19,7 +19,7 @@ export function ProductsGrid() {
     <div className='productsGrid'>
       {data?.data.map((product) => {
         return (
-          <div key={product.id} className='border-2'>
+          <div key={product.id} className='border-2 hover:bg-gray-200'>
             <div>{product.name}</div>
             <div className='flex justify-between'>
               <div>Price: $ {product.price}</div>

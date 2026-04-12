@@ -1,7 +1,6 @@
 import { type SyntheticEvent, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
 
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 import { PRODUCT_KEYS } from '@/features/products/constants';

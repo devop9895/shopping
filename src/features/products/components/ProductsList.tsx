@@ -20,17 +20,32 @@ export function ProductsList() {
   }
   return (
     <div>
-      {data?.data?.map((item) => {
-        return (
-          <div className='border-2' key={item.id} onClick={() => handleClick(item)}>
-            <div>{item.name}</div>
-            <div>
-              $({item.price}) - {item.brand}
-            </div>
-            <div>{item.description}</div>
-          </div>
-        );
-      })}
+      <table>
+        <thead className='border'>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Desciption</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.data?.map((item) => {
+            return (
+              <tr
+                key={item.id}
+                onClick={() => handleClick(item)}
+                className='border hover:bg-gray-200'
+              >
+                <td>{item.name}</td>
+                <td>{item.price}</td>
+                <td>{item.brand}</td>
+                <td>{item.description}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
