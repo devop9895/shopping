@@ -1,5 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+
 import { useAllProducts } from '@/hooks/useAllProducts';
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 
@@ -20,32 +26,32 @@ export function ProductsList() {
   }
   return (
     <div>
-      <table>
-        <thead className='border'>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Brand</th>
-            <th>Desciption</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>Price</TableCell>
+            <TableCell>Brand</TableCell>
+            <TableCell>Description</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {data?.data?.map((item) => {
             return (
-              <tr
+              <TableRow
                 key={item.id}
                 onClick={() => handleClick(item)}
-                className='border hover:bg-gray-200'
+                className='hover:bg-gray-200'
               >
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.brand}</td>
-                <td>{item.description}</td>
-              </tr>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.price}</TableCell>
+                <TableCell>{item.brand}</TableCell>
+                <TableCell>{item.description}</TableCell>
+              </TableRow>
             );
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   );
 }

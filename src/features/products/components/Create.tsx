@@ -3,6 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 import { ErrorSpan } from '@/components/ErrorSpan';
 
 import { createNewProduct } from '@/features/products';
@@ -37,46 +40,48 @@ export function Create() {
   });
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className='p-3'>
-        <header>Load new product</header>
+    <Card variant='outlined'>
+      <CardContent>
+        <form onSubmit={handleSubmit(onSubmit)} className='p-3'>
+          <header>New product</header>
 
-        <section>
-          <label className='block'>
-            Name
-            <input {...register('name')} />
-            <ErrorSpan errors={errors.name} />
-          </label>
-          <label className='block'>
-            Price
-            <input {...register('price')} />
-            <ErrorSpan errors={errors.price} />
-          </label>
-          <label className='block'>
-            Brand
-            <select {...register('brand')}>
-              {BRAND_LIST.map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-            <ErrorSpan errors={errors.brand} />
-          </label>
-          <label className='block'>
-            Description
-            <input {...register('description')} />
-            <ErrorSpan errors={errors.description} />
-          </label>
-        </section>
+          <section>
+            <label className='block'>
+              Name
+              <input {...register('name')} />
+              <ErrorSpan errors={errors.name} />
+            </label>
+            <label className='block'>
+              Price
+              <input {...register('price')} />
+              <ErrorSpan errors={errors.price} />
+            </label>
+            <label className='block'>
+              Brand
+              <select {...register('brand')}>
+                {BRAND_LIST.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+              <ErrorSpan errors={errors.brand} />
+            </label>
+            <label className='block'>
+              Description
+              <input {...register('description')} />
+              <ErrorSpan errors={errors.description} />
+            </label>
+          </section>
 
-        <footer className='flex justify-between'>
-          <button type='submit' disabled={isMutatePending}>
-            Create
-          </button>
-          <button type='button' onClick={handleCancel}>
-            Cancel
-          </button>
-        </footer>
-      </form>
-    </>
+          <footer className='flex justify-between'>
+            <button type='submit' disabled={isMutatePending}>
+              Create
+            </button>
+            <button type='button' onClick={handleCancel}>
+              Cancel
+            </button>
+          </footer>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

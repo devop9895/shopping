@@ -2,6 +2,9 @@ import { type SyntheticEvent, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 import { PRODUCT_KEYS } from '@/features/products/constants';
 import { deleteProduct } from '@/features/products/api/deleteProduct';
@@ -40,21 +43,25 @@ export function Detail() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='p-3'>
-      <header>Detail</header>
-      <section>
-        <div>Name: {product.name}</div>
-        <div>Brand: {product.brand}</div>
-        <div>Price: ${product.price}</div>
-        <div>Description: {product.description}</div>
-      </section>
-      <footer className='flex justify-between'>
-        <button>Edit</button>
-        <button type='button' onClick={handleDelete} disabled={isPending}>
-          Delete
-        </button>
-      </footer>
-      {error?.message ? <span>Error: {error.message}</span> : ''}
-    </form>
+    <Card>
+      <CardContent>
+        <form onSubmit={handleSubmit} className='p-3'>
+          <header>Detail</header>
+          <section>
+            <div>Name: {product.name}</div>
+            <div>Brand: {product.brand}</div>
+            <div>Price: ${product.price}</div>
+            <div>Description: {product.description}</div>
+          </section>
+          <footer className='flex justify-between'>
+            <button>Edit</button>
+            <button type='button' onClick={handleDelete} disabled={isPending}>
+              Delete
+            </button>
+          </footer>
+          {error?.message ? <span>Error: {error.message}</span> : ''}
+        </form>
+      </CardContent>
+    </Card>
   );
 }
