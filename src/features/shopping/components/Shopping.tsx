@@ -8,7 +8,7 @@ export function Shopping() {
   const { showCart } = useCart();
 
   return (
-    <div className='flex-1 flex'>
+    <div className='flex-1 flex gap-12'>
       <section className={`flex flex-col ${showCart ? 'w-[75%]' : 'w-full'}`}>
         <header className='flex'>
           <Filter />

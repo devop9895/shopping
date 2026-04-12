@@ -43,8 +43,6 @@ export function Create() {
     <Card variant='outlined'>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className='p-3'>
-          <header>New product</header>
-
           <section>
             <label className='block'>
               Name

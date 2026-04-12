@@ -6,7 +6,7 @@ export function Products() {
   const navigate = useNavigate();
 
   return (
-    <div className='flex-1 flex'>
+    <div className='flex-1 flex gap-12'>
       <div className='w-[70%]'>
         <ProductsList />
       </div>

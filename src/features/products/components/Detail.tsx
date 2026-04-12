@@ -46,7 +46,6 @@ export function Detail() {
     <Card>
       <CardContent>
         <form onSubmit={handleSubmit} className='p-3'>
-          <header>Detail</header>
           <section>
             <div>Name: {product.name}</div>
             <div>Brand: {product.brand}</div>
