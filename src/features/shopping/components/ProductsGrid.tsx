@@ -1,10 +1,10 @@
-import { useProducts } from '@/features/shopping/hooks/useProducts';
+import { useFilteredProducts } from '@/features/shopping/hooks/useFilteredProducts';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 export function ProductsGrid() {
-  const { error, data, isPending } = useProducts();
+  const { error, data, isPending } = useFilteredProducts();
 
   if (error) {
     return <div>Error: {error.message}</div>;

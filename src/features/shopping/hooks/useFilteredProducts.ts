@@ -4,7 +4,7 @@ import { getProducts } from '@/features/products/api/getProducts';
 import { useProductsFilters } from '@/features/shopping/hooks/useProductsFilters';
 import { PRODUCT_KEYS } from '@/features/products/constants';
 
-export function useProducts() {
+export function useFilteredProducts() {
   const filters = useProductsFilters();
 
   return useQuery({

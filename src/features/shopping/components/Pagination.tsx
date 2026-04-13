@@ -2,7 +2,7 @@ import { type SyntheticEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MUIPagination from '@mui/material/Pagination';
 
-import { useProducts } from '@/features/shopping/hooks/useProducts';
+import { useFilteredProducts } from '@/features/shopping/hooks/useFilteredProducts';
 
 export const SEARCH_PARAM_LIMIT = 'limit';
 export const SEARCH_PARAM_SORT = 'sortBy';
@@ -42,7 +42,7 @@ export function Pagination() {
   };
 
   //
-  const { data } = useProducts();
+  const { data } = useFilteredProducts();
   const getInitialPage = () => {
     return parseInt(searchParams.get(SEARCH_PARAM_PAGE) || '1');
   };
