@@ -1,8 +1,9 @@
-import './style.css';
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import './style.css';
+import { App } from './App';
 
 const app = document.getElementById('app');
 if (!app) throw new Error('Failed to find the app element');

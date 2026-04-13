@@ -4,7 +4,7 @@ import { SERVER_URL } from '@/config/config.ts';
 export async function createNewProduct(product: formTypeProduct) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  return fetch(`${SERVER_URL}/products`, {
+  return fetch(`${SERVER_URL}//products`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',

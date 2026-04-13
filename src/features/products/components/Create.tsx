@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,7 +11,12 @@ import { ErrorSpan } from '@/components/ErrorSpan';
 
 import { createNewProduct } from '@/features/products';
 import { PRODUCT_KEYS } from '@/features/products/constants';
-import { BRAND_LIST, formSchemaProduct, type formTypeProduct } from '../schemas';
+import {
+  BRAND_LIST,
+  type dataBaseTypeProductPagination,
+  formSchemaProduct,
+  type formTypeProduct,
+} from '../schemas';
 
 export function Create() {
   const navigate = useNavigate();
@@ -31,11 +37,31 @@ export function Create() {
   const queryClient = useQueryClient();
   const { isPending: isMutatePending, mutate } = useMutation({
     mutationFn: createNewProduct,
+    onMutate: async (variables) => {
+      await queryClient.cancelQueries({ queryKey: PRODUCT_KEYS.ALL });
+
+      const previousProducts: dataBaseTypeProductPagination | undefined = queryClient.getQueryData(
+        PRODUCT_KEYS.ALL,
+      );
+
+      queryClient.setQueryData(PRODUCT_KEYS.ALL, (old: dataBaseTypeProductPagination) => {
+        const newData = structuredClone(old);
+        newData.data = [{ id: crypto.randomUUID(), ...variables }, ...newData.data];
+        return newData;
+      });
+
+      return previousProducts;
+    },
+    onError: (error, _variables, onMutateResult) => {
+      console.error(error);
+      queryClient.setQueryData(PRODUCT_KEYS.ALL, onMutateResult);
+    },
     onSuccess: () => {
       reset();
-      queryClient.invalidateQueries({
-        queryKey: PRODUCT_KEYS.ALL,
-      });
+      toast('Product created!');
+    },
+    onSettled: async () => {
+      await queryClient.invalidateQueries({ queryKey: PRODUCT_KEYS.ALL });
     },
   });
 
