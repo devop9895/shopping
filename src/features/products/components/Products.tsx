@@ -1,5 +1,6 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 
+import { PATH_ROUTES } from '@/App';
 import { ProductsList } from './ProductsList';
 
 export function Products() {
@@ -12,7 +13,7 @@ export function Products() {
       </div>
 
       <div className='w-[30%] flex flex-col'>
-        <button onClick={() => navigate('/products/create')}>New</button>
+        <button onClick={() => navigate(PATH_ROUTES.PRODUCTS_CREATE)}>New</button>
         <Outlet />
       </div>
     </div>

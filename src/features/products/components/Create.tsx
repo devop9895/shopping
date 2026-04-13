@@ -8,7 +8,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 import { ErrorSpan } from '@/components/ErrorSpan';
-
+import { PATH_ROUTES } from '@/App';
 import { createNewProduct } from '@/features/products';
 import { PRODUCT_KEYS } from '@/features/products/constants';
 import {
@@ -22,7 +22,7 @@ export function Create() {
   const navigate = useNavigate();
   const handleCancel = () => {
     reset();
-    navigate('/products');
+    navigate(PATH_ROUTES.PRODUCTS);
   };
 
   const onSubmit = (data: formTypeProduct) => mutate(data);

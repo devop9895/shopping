@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { PATH_ROUTES } from '@/App';
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 import { PRODUCT_KEYS } from '@/features/products/constants';
 import { deleteProduct } from '@/features/products/api/deleteProduct';
@@ -35,7 +36,7 @@ export function Detail() {
       queryClient.invalidateQueries({
         queryKey: PRODUCT_KEYS.ALL,
       });
-      navigate('/products');
+      navigate(PATH_ROUTES.PRODUCTS);
     },
   });
   const handleDelete = () => {
