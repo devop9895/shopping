@@ -23,7 +23,7 @@ export function InfinityProducts() {
 
   const products = data.pages.flatMap((group) => group.data);
   return (
-    <div className='bg-red-300 flex-1'>
+    <div className='flex-1'>
       <button onClick={() => fetchNextPage()}>LOAD MORE</button>
       <ProductsTable products={products} />
       <div ref={ref}>Loading...</div>
