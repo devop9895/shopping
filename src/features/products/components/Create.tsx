@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { DevTool } from '@hookform/devtools';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -32,6 +33,7 @@ export function Create() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm({ resolver: zodResolver(formSchemaProduct) });
 
   const queryClient = useQueryClient();
@@ -105,6 +107,7 @@ export function Create() {
             </button>
           </footer>
         </form>
+        <DevTool control={control}></DevTool>
       </CardContent>
     </Card>
   );

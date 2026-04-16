@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@hookform/devtools": "4.4.0",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/vite": "4.2.2",
+    "@tanstack/react-query-devtools": "5.99.0",
     "@types/node": "^25.5.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
@@ -27,7 +29,7 @@
     "@emotion/styled": "11.14.1",
     "@hookform/resolvers": "5.2.2",
     "@mui/material": "9.0.0",
-    "@tanstack/react-query": "5.96.2",
+    "@tanstack/react-query": "^5.99.0",
     "axios": "1.14.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
