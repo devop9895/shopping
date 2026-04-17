@@ -3,14 +3,13 @@ import { useSearchParams } from 'react-router-dom';
 import MUIPagination from '@mui/material/Pagination';
 
 import { useFilteredProducts } from '@/features/shopping/hooks/useFilteredProducts';
-
-export const SEARCH_PARAM_LIMIT = 'limit';
-export const SEARCH_PARAM_SORT = 'sortBy';
-export const SEARCH_PARAM_QUERY = 'query';
-export const SEARCH_PARAM_PAGE = 'page';
-
-export const QUANTITY_OPTIONS = ['10', '50', '100', '500'] as const;
-export const SORT_BY_OPTIONS = ['name', 'price', 'brand'] as const;
+import {
+  QUANTITY_OPTIONS,
+  SEARCH_PARAM_LIMIT,
+  SEARCH_PARAM_PAGE,
+  SEARCH_PARAM_SORT,
+  SORT_BY_OPTIONS,
+} from '@/features/shopping/constants';
 
 export function Pagination() {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,11 +1,11 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
-import { NotFound } from '@/components/NotFound';
-
-import { Products, Detail, Create, InfinityProducts } from '@/features/products';
-import { Shopping } from '@/features/shopping';
 import { Boundary } from '@/components/ErrorBoundaries';
+import { Loading } from '@/components/Loading';
+
+import { Products, Detail, Create } from '@/features/products';
 import { CartMenu } from '@/components/CartMenu';
 import { SettingsMenu } from '@/components/SettingsMenu';
 
@@ -18,6 +18,16 @@ export const PATH_ROUTES = {
   CREATE: 'create',
   PRODUCTS_DETAILS: '/products/details',
 };
+
+const Shopping = lazy(() =>
+  import('@/features/shopping/components/Shopping').then((m) => ({ default: m.Shopping })),
+);
+const InfinityProducts = lazy(() =>
+  import('@/features/products/components/InfinityProducts').then((m) => ({
+    default: m.InfinityProducts,
+  })),
+);
+const NotFound = lazy(() => import('@/components/NotFound').then((m) => ({ default: m.NotFound })));
 
 export function App() {
   return (
@@ -42,33 +52,37 @@ export function App() {
           </div>
         </header>
         <main className='flex-1 flex flex-col'>
-          <Routes>
-            <Route path={PATH_ROUTES.INFINITY_PRODUCTS} element={<InfinityProducts />} />
+          <Boundary>
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path={PATH_ROUTES.INFINITY_PRODUCTS} element={<InfinityProducts />} />
 
-            <Route path='/' element={<Navigate to={PATH_ROUTES.PRODUCTS} replace />} />
-            <Route path={PATH_ROUTES.PRODUCTS} element={<Products />}>
-              <Route
-                path={`${PATH_ROUTES.DETAILS}/:id`}
-                element={
-                  <Boundary>
-                    <Detail />
-                  </Boundary>
-                }
-              />
-              <Route
-                path={PATH_ROUTES.CREATE}
-                element={
-                  <Boundary>
-                    <Create />
-                  </Boundary>
-                }
-              />
-            </Route>
+                <Route path='/' element={<Navigate to={PATH_ROUTES.PRODUCTS} replace />} />
+                <Route path={PATH_ROUTES.PRODUCTS} element={<Products />}>
+                  <Route
+                    path={`${PATH_ROUTES.DETAILS}/:id`}
+                    element={
+                      <Boundary>
+                        <Detail />
+                      </Boundary>
+                    }
+                  />
+                  <Route
+                    path={PATH_ROUTES.CREATE}
+                    element={
+                      <Boundary>
+                        <Create />
+                      </Boundary>
+                    }
+                  />
+                </Route>
 
-            <Route path={PATH_ROUTES.SHOPPING} element={<Shopping />} />
+                <Route path={PATH_ROUTES.SHOPPING} element={<Shopping />} />
 
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+                <Route path='*' element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Boundary>
         </main>
       </div>
     </>

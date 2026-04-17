@@ -1,13 +1,13 @@
 import { useSearchParams } from 'react-router-dom';
 
 import {
-  SEARCH_PARAM_LIMIT,
-  SEARCH_PARAM_SORT,
-  SEARCH_PARAM_PAGE,
   QUANTITY_OPTIONS,
-  SORT_BY_OPTIONS,
+  SEARCH_PARAM_LIMIT,
+  SEARCH_PARAM_PAGE,
   SEARCH_PARAM_QUERY,
-} from '@/features/shopping/components/Pagination';
+  SEARCH_PARAM_SORT,
+  SORT_BY_OPTIONS,
+} from '@/features/shopping/constants';
 
 export type FilterParams = {
   'name:contains'?: string;

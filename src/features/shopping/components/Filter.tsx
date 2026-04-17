@@ -2,7 +2,7 @@ import { type SyntheticEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { SEARCH_PARAM_QUERY } from '@/features/shopping/components/Pagination';
+import { SEARCH_PARAM_QUERY } from '@/features/shopping/constants';
 
 export function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
