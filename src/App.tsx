@@ -4,8 +4,8 @@ import { Toaster } from 'sonner';
 
 import { Boundary } from '@/components/ErrorBoundaries';
 import { Loading } from '@/components/Loading';
-
-import { Products, Detail, Create } from '@/features/products';
+import { NotFound } from '@/components/NotFound';
+import { Products } from '@/features/products';
 import { CartMenu } from '@/components/CartMenu';
 import { SettingsMenu } from '@/components/SettingsMenu';
 
@@ -27,7 +27,12 @@ const InfinityProducts = lazy(() =>
     default: m.InfinityProducts,
   })),
 );
-const NotFound = lazy(() => import('@/components/NotFound').then((m) => ({ default: m.NotFound })));
+const Create = lazy(() =>
+  import('@/features/products/components/Create').then((m) => ({ default: m.Create })),
+);
+const Detail = lazy(() =>
+  import('@/features/products/components/Detail').then((m) => ({ default: m.Detail })),
+);
 
 export function App() {
   return (
@@ -63,7 +68,9 @@ export function App() {
                     path={`${PATH_ROUTES.DETAILS}/:id`}
                     element={
                       <Boundary>
-                        <Detail />
+                        <Suspense fallback={<Loading />}>
+                          <Detail />
+                        </Suspense>
                       </Boundary>
                     }
                   />
@@ -71,7 +78,9 @@ export function App() {
                     path={PATH_ROUTES.CREATE}
                     element={
                       <Boundary>
-                        <Create />
+                        <Suspense fallback={<Loading />}>
+                          <Create />
+                        </Suspense>
                       </Boundary>
                     }
                   />
