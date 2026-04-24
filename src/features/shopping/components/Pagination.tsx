@@ -1,4 +1,4 @@
-import { type SyntheticEvent, useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MUIPagination from '@mui/material/Pagination';
 
@@ -19,7 +19,7 @@ export function Pagination() {
     return searchParams.get(SEARCH_PARAM_LIMIT) || QUANTITY_OPTIONS[0];
   };
   const [qty, setQty] = useState<string>(getInitialQty);
-  const handleQtyChange = (event: SyntheticEvent) => {
+  const handleQtyChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
     setQty(value);
 
@@ -32,7 +32,7 @@ export function Pagination() {
     return searchParams.get(SEARCH_PARAM_SORT) || SORT_BY_OPTIONS[0];
   };
   const [sortBy, setSortBy] = useState(getInitialSortBy);
-  const handleSortByChange = (event: SyntheticEvent) => {
+  const handleSortByChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
     setSortBy(value);
 
@@ -46,7 +46,7 @@ export function Pagination() {
     return parseInt(searchParams.get(SEARCH_PARAM_PAGE) || '1');
   };
   const [page, setPage] = useState<number>(getInitialPage());
-  const handlePageChange = (_, value: number) => {
+  const handlePageChange = (_event: unknown, value: number) => {
     setPage(value);
 
     searchParams.set(SEARCH_PARAM_PAGE, value.toString());

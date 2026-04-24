@@ -1,4 +1,4 @@
-import { type SyntheticEvent, useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -18,9 +18,10 @@ export function Filter() {
     setSearchParams(searchParams);
   };
   const debouncedURLUpdate = useDebouncedCallback(URLUpdate, 300);
-  const handleChange = (event: SyntheticEvent) => {
-    setQuery(event.target.value);
-    debouncedURLUpdate(event.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setQuery(value);
+    debouncedURLUpdate(value);
   };
 
   return (
