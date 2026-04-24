@@ -1,0 +1,41 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ['main', 'develop']
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Node 22 setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Check node & npm versions
+        run: |
+          echo node:; node-v
+          echo npm:; npm -v
+
+      - name: npm install
+        run: npm run install
+
+      - name: Type Check
+        run: npx tsc -p tsconfig.json --noEmit
+
+      - name: Build
+        run: npm run build
+
+      # run linter
+      # run unit-test
+
+
