@@ -10,7 +10,7 @@ export function CartMenu() {
 
   if (pathname === PATH_ROUTES.SHOPPING) {
     return (
-      <button onClick={toggleShowCart}>
+      <button className='p-2.5' onClick={toggleShowCart}>
         <IconCart />
       </button>
     );

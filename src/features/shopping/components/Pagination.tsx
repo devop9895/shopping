@@ -54,10 +54,14 @@ export function Pagination() {
   };
 
   return (
-    <form className='w-full flex justify-between'>
-      <label>
+    <form className='flex w-full flex-wrap items-end justify-between gap-3'>
+      <label className='flex min-w-[7rem] flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-slate-500'>
         Quantity
-        <select value={qty} onChange={handleQtyChange}>
+        <select
+          className='rounded-lg border border-slate-300 bg-white px-2 py-2 text-sm font-normal text-slate-900 outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20'
+          value={qty}
+          onChange={handleQtyChange}
+        >
           {QUANTITY_OPTIONS.map((value) => {
             return <option key={value}>{value}</option>;
           })}
@@ -66,9 +70,13 @@ export function Pagination() {
       <div>
         <MUIPagination count={data?.pages} page={page} onChange={handlePageChange} />
       </div>
-      <label>
+      <label className='flex min-w-[7rem] flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-slate-500'>
         Sort By
-        <select value={sortBy} onChange={handleSortByChange}>
+        <select
+          className='rounded-lg border border-slate-300 bg-white px-2 py-2 text-sm font-normal text-slate-900 outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20'
+          value={sortBy}
+          onChange={handleSortByChange}
+        >
           {SORT_BY_OPTIONS.map((value) => {
             return <option key={value}>{value}</option>;
           })}

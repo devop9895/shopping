@@ -2,7 +2,7 @@ import { IconCog } from '@/components/Icons';
 
 export function SettingsMenu() {
   return (
-    <button>
+    <button className='p-2.5'>
       <IconCog />
     </button>
   );

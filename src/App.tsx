@@ -38,25 +38,34 @@ export function App() {
   return (
     <>
       <Toaster />
-      <div className='flex flex-col h-dvh w-full p-2'>
-        <header className='flex justify-between'>
-          <nav>
-            <NavLink to={PATH_ROUTES.INFINITY_PRODUCTS} className='p-2'>
+      <div className='flex h-dvh w-full flex-col bg-slate-50 p-3 text-slate-800'>
+        <header className='mb-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm'>
+          <nav className='flex items-center gap-1'>
+            <NavLink
+              to={PATH_ROUTES.INFINITY_PRODUCTS}
+              className='rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900'
+            >
               Infinity Products
             </NavLink>
-            <NavLink to={PATH_ROUTES.PRODUCTS} className='p-2'>
+            <NavLink
+              to={PATH_ROUTES.PRODUCTS}
+              className='rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900'
+            >
               Products
             </NavLink>
-            <NavLink to={PATH_ROUTES.SHOPPING} className='p-2'>
+            <NavLink
+              to={PATH_ROUTES.SHOPPING}
+              className='rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900'
+            >
               Shopping
             </NavLink>
           </nav>
-          <div>
+          <div className='flex items-center gap-1'>
             <CartMenu />
             <SettingsMenu />
           </div>
         </header>
-        <main className='flex-1 flex flex-col'>
+        <main className='flex flex-1 min-h-0 flex-col rounded-2xl border border-slate-200 bg-white p-3 shadow-sm'>
           <Boundary>
             <Suspense fallback={<Loading />}>
               <Routes>

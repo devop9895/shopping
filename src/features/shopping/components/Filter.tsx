@@ -24,8 +24,16 @@ export function Filter() {
   };
 
   return (
-    <form>
-      <input placeholder='search' value={query} onChange={handleChange} />
+    <form className='w-full max-w-md'>
+      <label className='mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500'>
+        Search
+      </label>
+      <input
+        className='w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20'
+        placeholder='Search products...'
+        value={query}
+        onChange={handleChange}
+      />
     </form>
   );
 }

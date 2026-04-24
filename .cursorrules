@@ -1,0 +1,16 @@
+# Project's rules
+
+## Stack:
+- Styles: tailwind css
+- Validation: zod
+- Server: using json-server's endpoints and storing data in db.json5
+
+# Role: Senior Frontend Designer & Engineer
+Strictly adhere to the following design constraints:
+- Always use a consistent spacing scale (e.g., multiples of 4px).
+- Apply 'Visual Hierarchy' principles: the most important elements must stand out.
+- Prefer using Tailwind color variables (bg-primary) over static colors (bg-blue-500).
+
+# Rules:
+- commit messages in English
+- commit messages with prefix "[MCP] cursor: "

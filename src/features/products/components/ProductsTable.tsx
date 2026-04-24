@@ -9,7 +9,12 @@ import TableCell from '@mui/material/TableCell';
 import { PATH_ROUTES } from '@/App';
 import type { dataBaseTypeProduct, dataBaseTypeProducts } from '@/features/products/schemas';
 
-export function ProductsTable({ products }: { products: dataBaseTypeProducts }) {
+type ProductsTableProps = {
+  products: dataBaseTypeProducts;
+  sentinelRef?: (node?: Element | null) => void;
+};
+
+export function ProductsTable({ products, sentinelRef }: ProductsTableProps) {
   const navigate = useNavigate();
   const handleClick = (item: dataBaseTypeProduct) => {
     const state = { product: item };
@@ -17,18 +22,24 @@ export function ProductsTable({ products }: { products: dataBaseTypeProducts }) 
   };
 
   if (!products?.length) {
-    return <div>No products</div>;
+    return (
+      <div className='p-4'>
+        <div className='rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-8 text-center text-sm text-slate-500'>
+          No products
+        </div>
+      </div>
+    );
   }
   return (
-    <div>
-      <Table>
+    <div className='h-full overflow-auto p-4'>
+      <Table className='rounded-xl border border-slate-200 bg-white'>
         <TableHead>
-          <TableRow>
-            <TableCell>Number</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell>Brand</TableCell>
-            <TableCell>Description</TableCell>
+          <TableRow className='bg-slate-50'>
+            <TableCell className='font-semibold text-slate-700'>Number</TableCell>
+            <TableCell className='font-semibold text-slate-700'>Name</TableCell>
+            <TableCell className='font-semibold text-slate-700'>Price</TableCell>
+            <TableCell className='font-semibold text-slate-700'>Brand</TableCell>
+            <TableCell className='font-semibold text-slate-700'>Description</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,7 +48,7 @@ export function ProductsTable({ products }: { products: dataBaseTypeProducts }) 
               <TableRow
                 key={item.id}
                 onClick={() => handleClick(item)}
-                className='hover:bg-gray-200'
+                className='cursor-pointer transition-colors hover:bg-slate-100'
               >
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{item.name}</TableCell>
@@ -49,6 +60,11 @@ export function ProductsTable({ products }: { products: dataBaseTypeProducts }) 
           })}
         </TableBody>
       </Table>
+      {sentinelRef ? (
+        <div ref={sentinelRef} className='py-2 text-center text-xs text-slate-400'>
+          Loading...
+        </div>
+      ) : null}
     </div>
   );
 }

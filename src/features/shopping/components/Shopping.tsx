@@ -8,19 +8,25 @@ export function Shopping() {
   const { showCart } = useCart();
 
   return (
-    <div className='flex-1 flex gap-12'>
-      <section className={`flex flex-col ${showCart ? 'w-[75%]' : 'w-full'}`}>
-        <header className='flex'>
+    <div className='flex min-h-0 flex-1 gap-5 lg:gap-7'>
+      <section
+        className={`flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${showCart ? 'w-[75%]' : 'w-full'}`}
+      >
+        <header className='border-b border-slate-200 bg-slate-50/70 px-4 py-3 sm:px-5'>
           <Filter />
         </header>
-        <section className='flex-1'>
+        <section className='flex-1 overflow-y-auto px-4 py-4 sm:px-5'>
           <ProductsGrid />
         </section>
-        <footer className='flex justify-between'>
+        <footer className='border-t border-slate-200 bg-slate-50/70 px-4 py-3 sm:px-5'>
           <Pagination />
         </footer>
       </section>
-      <Cart />
+      {showCart ? (
+        <aside className='w-[25%] min-w-[17rem] max-w-sm shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+          <Cart />
+        </aside>
+      ) : null}
     </div>
   );
 }

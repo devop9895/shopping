@@ -44,22 +44,22 @@ export function Detail() {
   };
 
   return (
-    <Card>
-      <CardContent>
-        <form onSubmit={handleSubmit} className='p-3'>
-          <section>
-            <div>Name: {product.name}</div>
+    <Card className='overflow-hidden rounded-xl border border-slate-200 shadow-sm'>
+      <CardContent className='p-4'>
+        <form onSubmit={handleSubmit} className='space-y-4'>
+          <section className='space-y-2 text-sm text-slate-700'>
+            <div className='text-base font-semibold text-slate-900'>Name: {product.name}</div>
             <div>Brand: {product.brand}</div>
-            <div>Price: ${product.price}</div>
-            <div>Description: {product.description}</div>
+            <div className='font-medium text-sky-700'>Price: ${product.price}</div>
+            <div className='text-slate-500'>Description: {product.description}</div>
           </section>
-          <footer className='flex justify-between'>
+          <footer className='flex justify-between gap-2 border-t border-slate-200 pt-3'>
             <button>Edit</button>
             <button type='button' onClick={handleDelete} disabled={isPending}>
               Delete
             </button>
           </footer>
-          {error?.message ? <span>Error: {error.message}</span> : ''}
+          {error?.message ? <span className='text-sm text-red-600'>Error: {error.message}</span> : ''}
         </form>
       </CardContent>
     </Card>

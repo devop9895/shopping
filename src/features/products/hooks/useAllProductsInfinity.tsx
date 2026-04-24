@@ -8,6 +8,10 @@ export function useAllProductsInfinity() {
     queryKey: PRODUCT_KEYS.INFINITY,
     queryFn: ({ pageParam }) => getProducts({ filters: { _page: pageParam, _per_page: '20' } }),
     initialPageParam: '1',
-    getNextPageParam: (lastPage: dataBaseTypeProductPagination) => lastPage.next?.toString(),
+    getNextPageParam: (lastPage: dataBaseTypeProductPagination) => {
+      const { next } = lastPage;
+      if (!next) return;
+      return next.toString();
+    },
   });
 }
