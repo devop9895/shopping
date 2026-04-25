@@ -20,20 +20,21 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
+          cache-dependency-path: './client/package-lock.json'
 
       - name: Check node & npm versions
         run: |
           echo node:; node -v
           echo npm:; npm -v
 
-      - name: npm install
-        run: npm install
+      - name: npm install client dependencies
+        run: npm install -w client
 
       - name: Type Check
         run: npx tsc -p tsconfig.json --noEmit
 
       - name: Build
-        run: npm run build
+        run: npm run build -w client
 
       # run linter
       # run unit-test
@@ -42,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: 'shopping-artifact'
-          path: dist/
+          path: client/dist/
 

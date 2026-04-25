@@ -7,10 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
 dist
 dist-ssr
 *.local
+
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+
+# Playwright
+client/test/results/
+client/test/report/
+client/test-results/
+client/playwright-report/
+client/blob-report/
+client/playwright/.cache/
+client/playwright/.auth/
 
 # Editor directories and files
 .vscode/*
@@ -23,11 +36,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Playwright
-/test/results/
-/test/report/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
