@@ -38,4 +38,9 @@ jobs:
       # run linter
       # run unit-test
 
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'shopping-artifact'
+          path: dist/
 
