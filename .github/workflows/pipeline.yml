@@ -23,7 +23,7 @@ jobs:
 
       - name: Check node & npm versions
         run: |
-          echo node:; node-v
+          echo node:; node -v
           echo npm:; npm -v
 
       - name: npm install
