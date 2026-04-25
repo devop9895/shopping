@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: './client/package-lock.json'
+          cache-dependency-path: './package-lock.json'
 
       - name: Check node & npm versions
         run: |
@@ -31,7 +31,7 @@ jobs:
         run: npm install -w client
 
       - name: Type Check
-        run: npx tsc -p tsconfig.json --noEmit
+        run: npx tsc -p client/tsconfig.json --noEmit
 
       - name: Build
         run: npm run build -w client
