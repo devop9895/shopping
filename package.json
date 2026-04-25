@@ -7,7 +7,8 @@
   "scripts": {
     "dev:client": "npm run dev -w client",
     "dev:client:render": "npm run dev-render -w client",
-    "dev:server": "npm run start-cloud -w server",
+    "dev:server": "npm run start-local -w server",
+    "dev:server:render": "npm run start-cloud -w server",
     "install:all": "npm install"
   }
 }
