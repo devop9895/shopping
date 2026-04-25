@@ -27,7 +27,7 @@ jobs:
           echo npm:; npm -v
 
       - name: npm install
-        run: npm run install
+        run: npm install
 
       - name: Type Check
         run: npx tsc -p tsconfig.json --noEmit
