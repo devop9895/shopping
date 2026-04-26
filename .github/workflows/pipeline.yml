@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline Render Server
 
 on:
   push:
@@ -33,8 +33,8 @@ jobs:
       - name: Type Check
         run: npx tsc -p client/tsconfig.json --noEmit
 
-      - name: Build
-        run: npm run build -w client
+      - name: Build For Render Server
+        run: npm run build -w client --mode render
 
       # run linter
       # run unit-test
