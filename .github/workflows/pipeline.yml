@@ -1,4 +1,4 @@
-name: CI Pipeline Render Server
+name: CI/CD Pipeline - Build & Deploy GitHub Pages with Render Server
 
 on:
   push:
@@ -33,15 +33,39 @@ jobs:
       - name: Type Check
         run: npx tsc -p client/tsconfig.json --noEmit
 
-      - name: Build
+      - name: Build For Render Server
         run: npm run build:render -w client
+        env:
+          VITE_BASE_PATH: /shopping/
 
       # run linter
       # run unit-test
 
-      - name: Upload Build Artifact
+      - name: Upload Build Artifact for Manual Download
         uses: actions/upload-artifact@v4
         with:
-          name: 'shopping-artifact'
+          name: 'shopping-artifact-render-server'
           path: client/dist/
 
+      - name: Upload Build Artifact for Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: client/dist/
+
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

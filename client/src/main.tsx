@@ -24,7 +24,7 @@ const client = new QueryClient({
 createRoot(app!).render(
   <QueryClientProvider client={client}>
     <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </QueryClientProvider>,
