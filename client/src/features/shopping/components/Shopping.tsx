@@ -10,7 +10,7 @@ export function Shopping() {
   return (
     <div className='flex min-h-0 flex-1 gap-5 lg:gap-7'>
       <section
-        className={`flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${showCart ? 'w-[75%]' : 'w-full'}`}
+        className={`${showCart ? 'w-[75%]' : 'w-full'} flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm`}
       >
         <header className='border-b border-slate-200 bg-slate-50/70 px-4 py-3 sm:px-5'>
           <Filter />

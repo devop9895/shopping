@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:render": "vite --mode render",
     "build": "tsc && vite build",
+    "dev:render": "vite --mode render",
     "build:render": "tsc && vite build --mode render",
     "preview": "vite preview",
     "type-check": "npx tsc -p tsconfig.json --noEmit"

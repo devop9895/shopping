@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { PATH_ROUTES } from '@/App';
 import type { dataBaseTypeProduct } from '@/features/products/schemas';
 import { useDeleteProduct } from '@/features/products/hooks/useDeleteProduct';
 
@@ -24,8 +25,11 @@ export function Detail() {
   const handleDelete = () => {
     mutate(product.id);
   };
+
+  const navigate = useNavigate();
   const handleEdit = () => {
-    console.log('Fake Edit');
+    const state = { product };
+    navigate(`${PATH_ROUTES.PRODUCT_EDIT}/${product.id}`, { state });
   };
 
   return (

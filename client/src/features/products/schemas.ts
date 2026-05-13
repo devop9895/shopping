@@ -28,7 +28,13 @@ const dataBaseSchemaProductPagination = z.object({
 });
 type dataBaseTypeProductPagination = z.infer<typeof dataBaseSchemaProductPagination>;
 
-export { BRAND_LIST, formSchemaProduct, dataBaseSchemaProducts, dataBaseSchemaProductPagination };
+export {
+  BRAND_LIST,
+  formSchemaProduct,
+  dataBaseSchemaProduct,
+  dataBaseSchemaProducts,
+  dataBaseSchemaProductPagination,
+};
 export type {
   formTypeProduct,
   dataBaseTypeProducts,

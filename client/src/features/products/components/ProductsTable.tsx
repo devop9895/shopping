@@ -35,7 +35,6 @@ export function ProductsTable({ products, sentinelRef }: ProductsTableProps) {
       <Table className='rounded-xl border border-slate-200 bg-white'>
         <TableHead>
           <TableRow className='bg-slate-50'>
-            <TableCell className='font-semibold text-slate-700'>Number</TableCell>
             <TableCell className='font-semibold text-slate-700'>Name</TableCell>
             <TableCell className='font-semibold text-slate-700'>Price</TableCell>
             <TableCell className='font-semibold text-slate-700'>Brand</TableCell>
@@ -43,14 +42,13 @@ export function ProductsTable({ products, sentinelRef }: ProductsTableProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map((item, index) => {
+          {products.map((item) => {
             return (
               <TableRow
                 key={item.id}
                 onClick={() => handleClick(item)}
                 className='cursor-pointer transition-colors hover:bg-slate-100'
               >
-                <TableCell>{index + 1}</TableCell>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.price}</TableCell>
                 <TableCell>{item.brand}</TableCell>

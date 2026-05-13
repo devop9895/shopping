@@ -17,6 +17,8 @@ export const PATH_ROUTES = {
   PRODUCTS_CREATE: '/products/create',
   CREATE: 'create',
   PRODUCTS_DETAILS: '/products/details',
+  EDIT: 'edit',
+  PRODUCT_EDIT: '/products/edit',
 };
 
 const Shopping = lazy(() =>
@@ -32,6 +34,9 @@ const Create = lazy(() =>
 );
 const Detail = lazy(() =>
   import('@/features/products/components/Detail').then((m) => ({ default: m.Detail })),
+);
+const Edit = lazy(() =>
+  import('@/features/products/components/Edit').then((m) => ({ default: m.Edit })),
 );
 
 export function App() {
@@ -74,6 +79,16 @@ export function App() {
                 <Route path='/' element={<Navigate to={PATH_ROUTES.PRODUCTS} replace />} />
                 <Route path={PATH_ROUTES.PRODUCTS} element={<Products />}>
                   <Route
+                    path={PATH_ROUTES.CREATE}
+                    element={
+                      <Boundary>
+                        <Suspense fallback={<Loading />}>
+                          <Create />
+                        </Suspense>
+                      </Boundary>
+                    }
+                  />
+                  <Route
                     path={`${PATH_ROUTES.DETAILS}/:id`}
                     element={
                       <Boundary>
@@ -84,11 +99,11 @@ export function App() {
                     }
                   />
                   <Route
-                    path={PATH_ROUTES.CREATE}
+                    path={`${PATH_ROUTES.EDIT}/:id`}
                     element={
                       <Boundary>
                         <Suspense fallback={<Loading />}>
-                          <Create />
+                          <Edit />
                         </Suspense>
                       </Boundary>
                     }
