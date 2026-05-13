@@ -18,6 +18,7 @@ import {
   formSchemaProduct,
   type formTypeProduct,
 } from '../schemas';
+import { DEV } from '@/config/config';
 
 export function Create() {
   const navigate = useNavigate();
@@ -107,7 +108,7 @@ export function Create() {
             </button>
           </footer>
         </form>
-        <DevTool control={control}></DevTool>
+        {DEV && <DevTool control={control}></DevTool>}
       </CardContent>
     </Card>
   );

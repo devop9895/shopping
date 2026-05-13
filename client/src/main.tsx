@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import './style.css';
 import { App } from './App';
+import { DEV } from './config/config';
 
 const app = document.getElementById('app');
 if (!app) throw new Error('Failed to find the app element');
@@ -23,7 +24,7 @@ const client = new QueryClient({
 
 createRoot(app!).render(
   <QueryClientProvider client={client}>
-    <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+    {DEV && <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>}
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>

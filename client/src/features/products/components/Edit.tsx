@@ -13,6 +13,7 @@ import { PRODUCT_KEYS } from '@/features/products/constants';
 import { updateProduct } from '@/features/products/api/putProduct';
 import { ErrorSpan } from '@/components/ErrorSpan';
 import { BRAND_LIST, type dataBaseTypeProduct, dataBaseSchemaProduct } from '../schemas';
+import { DEV } from '@/config/config';
 
 export function Edit() {
   const { state } = useLocation();
@@ -91,7 +92,7 @@ export function Edit() {
             </button>
           </footer>
         </form>
-        <DevTool control={control}></DevTool>
+        {DEV && <DevTool control={control}></DevTool>}
       </CardContent>
     </Card>
   );
