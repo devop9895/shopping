@@ -6,9 +6,9 @@
   ],
   "scripts": {
     "dev:client": "npm run dev -w client",
-    "dev:server": "npm run start-local -w server",
-    "dev:client:render": "npm run dev-render -w client",
-    "dev:server:render": "npm run start-cloud -w server",
+    "dev:server": "npm run dev -w server",
+    "prod:client": "npm run prod -w client",
+    "prod:server": "npm run prod -w server",
     "install:all": "npm install"
   }
 }
